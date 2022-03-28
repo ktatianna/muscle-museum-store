@@ -6,7 +6,7 @@ const NavBar = () => {
     <>
       <Navbar  bg="dark" variant="dark" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">Muscle Museum</Navbar.Brand>
+          <Navbar.Brand href="#">Muscle Museum Store</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
