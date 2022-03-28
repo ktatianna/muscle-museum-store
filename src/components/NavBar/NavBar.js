@@ -22,7 +22,7 @@ const NavBar = () => {
                   Paul Cézanne
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="#action5">Rxpresionismo</Nav.Link>
+              <Nav.Link href="#action5">Expresionismo</Nav.Link>
               <Nav.Link href="#action6">Arte Pop</Nav.Link>
             </Nav>
           </Navbar.Collapse>
