@@ -1,6 +1,8 @@
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import "./NavBar.css";
 
+import CartWidget from '../../components/CartWidget/CartWidget';
+
 const NavBar = () => {
   return (
     <>
@@ -26,6 +28,7 @@ const NavBar = () => {
               <Nav.Link href="#action6">Arte Pop</Nav.Link>
             </Nav>
           </Navbar.Collapse>
+          <CartWidget/>
         </Container>
       </Navbar>
     </>
