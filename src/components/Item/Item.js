@@ -1,17 +1,14 @@
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
-const Item = ({ name, img }) => {
-    
+const Item = ({ title, image, category, autor }) => {
+  console.log(image)
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={img} atl={name} />
+    <Card style={{ width: "18rem" }} className = " h-100 text-center">
+      <Card.Img variant="top" src={image} atl={title} className =" h-100"/>
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Card.Title>{title}</Card.Title>
+        <p class="fs-6">{autor}</p>
+        <Button variant="dark">Buy</Button>
       </Card.Body>
     </Card>
   );
