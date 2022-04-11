@@ -1,8 +1,13 @@
-import { useState } from "react";
-import ItemCount from "../ItemCount/ItemCount";
+import { useEffect, useState } from 'react'
+import { Container } from "react-bootstrap";
 
-const ItemListContainer = () => {
-    const stock = 7;
+import getArtworks from '../../utils/getArtworks';
+
+import ItemList from '../ItemList/ItemList';
+
+
+const ItemListContainer = ( props ) => {
+  const stock = 7;
     const initial = 1;
     const [ count, setCount ] = useState(initial);
 
@@ -15,12 +20,20 @@ const ItemListContainer = () => {
         }
     };
 
+    const[products, setProducts] = useState([])
 
-    return (
-        <>
-            <ItemCount onAdd={onAdd} stock={stock} initial={initial} count={count} />
-        </>
-    );
-};
+    useEffect(() => {
+        getArtworks().then(artworks => setProducts(artworks)).catch(error => console.log(error));
+    }, [])
+
+    return(
+        <Container>
+            <h1 className='text-center'>{props.greeting}</h1>
+            <ItemList products={products}/>
+              <ItemCount onAdd={onAdd} stock={stock} initial={initial} count={count} />
+        </Container>
+    )
+}
 
 export default ItemListContainer;
+

@@ -1,13 +1,14 @@
 import './App.css';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
 
   return (
     <div className="App">
       <NavBar/>
-      <ItemListContainer/>
+      <ItemListContainer greeting="Bienvenido a Muscle Museum Store"/>
     </div>
   );
 }
