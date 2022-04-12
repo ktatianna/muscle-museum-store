@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});
 
     useEffect(() => {
-        getArtworksById(6)
+        getArtworksById(7)
             .then((artwork) => setProduct(artwork))
             .catch((error) => console.log(error));
     }, );

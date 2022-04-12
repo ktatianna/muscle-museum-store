@@ -1,9 +1,36 @@
-.cardContainer {
+.card-container {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px;
+    max-width: 940px;
+}
+
+.card-container-detail {
+    display: flex;
+    flex-direction: row;
 }
 
 .card-price {
-    color: #140330
+    color: #140330;
+    font-size: 18px;
+}
+
+.card-autor {
+    margin: 0;
+}
+.itemDetail-img {
+    height: 540px;
+    width: 540px;
+}
+
+.itemDetail-img  img {
+    height: 540px;
+    width: 540px;
+    object-fit: cover;
+}
+
+.item-detail-body {
+    padding: 10px;
+    display: flex;
+    align-items: center;
 }

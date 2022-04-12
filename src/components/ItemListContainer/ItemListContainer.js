@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-
+import './ItemListContainer.css'
 import { getArtworks } from "../../utils/getArtworks";
 
 import ItemList from "../ItemList/ItemList";
@@ -29,7 +29,7 @@ const onAdd = (condition) => {
     }, []);
 
     return (
-        <Container>
+        <Container className="ItemListContainer">
             <h1 className="text-center">{props.greeting}</h1>
             <ItemList products={products} />
             <ItemDetailContainer/>
