@@ -1,16 +1,20 @@
-import { Card, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import "./Item.css";
 
-const Item = ({ title, image, autor }) => {
-  console.log(image)
+const Item = ({ title, image, autor, price }) => {
+  console.log(image);
   return (
-    <Card style={{ width: "18rem" }} className = " h-100 text-center">
-      <Card.Img variant="top" src={image} alt={title} className =" h-100"/>
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Subtitle class="fs-6">{autor}</Card.Subtitle>
-        <Button variant="dark">Buy</Button>
-      </Card.Body>
-    </Card>
+    <div className="card cardItem text-center">
+      <div className="cardItem-img">
+        <img src={image} className="img-fluid " alt="..."/>
+      </div>
+      <div className="card-body">
+        <h5 className="card-title">{title}</h5>
+        <p className="card-text">{autor}</p>
+        <h6>{price}</h6>
+        <Button variant="dark">Add to cart</Button>
+      </div>
+    </div>
   );
 };
 

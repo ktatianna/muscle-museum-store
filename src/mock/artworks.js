@@ -33,7 +33,7 @@ const artworks = [
     },
     {
         id: 5,
-        title: "Luncheon on the Grass (Le Déjeuner sur l'herbe))",
+        title: "Luncheon on the Grass",
         autor: "Édouard Manet",
         image: "https://d32dm0rphc51dk.cloudfront.net/zFA7cwdkWxbIrmuAAd21VA/large.jpg",
         category: "Oil  on canvas",
