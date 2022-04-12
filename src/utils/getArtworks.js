@@ -1,6 +1,6 @@
 import artworks from '../mock/artworks'
 
-const getArtworks = () => {
+export const getArtworks = () => {
     return new Promise((resolve, reject) => {
         const ok = true;
         setTimeout(() => {
@@ -9,8 +9,14 @@ const getArtworks = () => {
             } else {
                 reject('ERROR');
             }
-        }, 2000);
+        }, 2000)
     })
 }
 
-export default getArtworks;
+export const getArtworksById = (id) => {
+    return new Promise (resolve => {
+        setTimeout(() => {
+            resolve(artworks.find(artwork => artwork.id === id))
+        }, 2000)
+    })
+}
