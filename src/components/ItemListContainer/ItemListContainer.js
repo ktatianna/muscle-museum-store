@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import './ItemListContainer.css'
 import { getArtworks } from "../../utils/getArtworks";
+import { useParams } from 'react-router-dom';
 
 import ItemList from "../ItemList/ItemList";
-import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
 /*   const stock = 7;
     const initial = 1;
     const [count, setCount] = useState(initial);
@@ -21,18 +21,17 @@ const onAdd = (condition) => {
     };
 */
     const [products, setProducts] = useState([]);
+    const { categoryId } = useParams();
 
     useEffect(() => {
-        getArtworks()
+        getArtworks(categoryId)
             .then((artworks) => setProducts(artworks))
             .catch((error) => console.log(error));
-    }, []);
+    }, [categoryId]);
 
     return (
         <Container className="ItemListContainer">
-            <h1 className="text-center">{props.greeting}</h1>
             <ItemList products={products} />
-            <ItemDetailContainer/>
         </Container>
     );
 };

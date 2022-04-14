@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
 import "./ItemDetail.css"
 
-const ItemDetail = ({ title, image, category, description, medium, autor, price }) => {
+const ItemDetail = ({ title, image, category, description, medium, autor, price, movement }) => {
     return (
         <>
             <div className="card mb-3 card-container text-center">
@@ -16,7 +16,7 @@ const ItemDetail = ({ title, image, category, description, medium, autor, price 
                             <p className="card-text"><small className="text-muted">{medium}</small></p>
                             <p>{description}</p>
                             <p className="card-text card-price"><strong>{price}</strong></p>
-                            <p className="card-text"><small className="text-muted">{category}</small></p>
+                            <p className="card-text"><small className="text-muted">{`${movement} - ${category}`}</small></p>
                             <Button variant="dark">Add to cart</Button>
                         </div>
                     </div>
