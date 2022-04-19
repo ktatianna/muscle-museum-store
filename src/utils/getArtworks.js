@@ -1,16 +1,30 @@
-import artworks from '../mock/artworks'
+import { artworks, categories } from '../mock/artworks'
 
-const getArtworks = () => {
+export const getArtworks = (categoryId) => {
     return new Promise((resolve, reject) => {
         const ok = true;
         setTimeout(() => {
             if(ok) {
-                resolve(artworks);
+                resolve(categoryId ? artworks.filter(artwork => artwork.category === categoryId): artworks);
             } else {
                 reject('ERROR');
             }
-        }, 2000);
+        }, 600)
     })
 }
 
-export default getArtworks;
+export const getArtworksById = (id) => {
+    return new Promise (resolve => {
+        setTimeout(() => {
+            resolve(artworks.find(artwork => artwork.id === id))
+        }, 1000)
+    })
+}
+
+export const getCategories = () => {
+    return new Promise (resolve => {
+        setTimeout(() => {
+            resolve(categories)
+        }, 1000)
+    })
+}

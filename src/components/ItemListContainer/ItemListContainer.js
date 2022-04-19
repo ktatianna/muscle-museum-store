@@ -1,39 +1,39 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import './ItemListContainer.css'
+import { getArtworks } from "../../utils/getArtworks";
+import { useParams } from 'react-router-dom';
 
-import getArtworks from '../../utils/getArtworks';
+import ItemList from "../ItemList/ItemList";
 
-import ItemList from '../ItemList/ItemList';
-
-
-const ItemListContainer = ( props ) => {
-  const stock = 7;
+const ItemListContainer = () => {
+/*   const stock = 7;
     const initial = 1;
-    const [ count, setCount ] = useState(initial);
+    const [count, setCount] = useState(initial);
 
-    const onAdd = ( condition ) => {
-        if(condition === '-' && count > 1 ){
-            setCount(count - 1)
+const onAdd = (condition) => {
+        if (condition === "-" && count > 1) {
+            setCount(count - 1);
         }
-        if(condition === '+' && count < stock){
-            setCount(count + 1)
+        if (condition === "+" && count < stock) {
+            setCount(count + 1);
         }
     };
-
-    const[products, setProducts] = useState([])
+*/
+    const [products, setProducts] = useState([]);
+    const { categoryId } = useParams();
 
     useEffect(() => {
-        getArtworks().then(artworks => setProducts(artworks)).catch(error => console.log(error));
-    }, [])
+        getArtworks(categoryId)
+            .then((artworks) => setProducts(artworks))
+            .catch((error) => console.log(error));
+    }, [categoryId]);
 
-    return(
-        <Container>
-            <h1 className='text-center'>{props.greeting}</h1>
-            <ItemList products={products}/>
-              <ItemCount onAdd={onAdd} stock={stock} initial={initial} count={count} />
+    return (
+        <Container className="ItemListContainer">
+            <ItemList products={products} />
         </Container>
-    )
-}
-
+    );
+};
+//<ItemCount onAdd={onAdd} stock={stock} initial={initial} count={count} />
 export default ItemListContainer;
-

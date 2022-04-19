@@ -1,14 +1,25 @@
-import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import "./NavBar.css";
+import { NavLink } from 'react-router-dom'
+import { useEffect, useState } from "react";
 
 import CartWidget from '../../components/CartWidget/CartWidget';
+import { getCategories } from "../../utils/getArtworks";
 
 const NavBar = () => {
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    getCategories().then(categories => {
+      setCategories(categories)
+    })
+  }, [])
+
   return (
     <>
-      <Navbar  bg="dark" variant="dark" expand="lg">
+      <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">Muscle Museum Store</Navbar.Brand>
+          <NavLink to='/' className="navbar-brand">Muscle Museum Store</NavLink>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -16,19 +27,17 @@ const NavBar = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">Impresionismo</Nav.Link>
-              <NavDropdown title="Posimpresionismo" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Vincent Van Gogh</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Paul Cézanne
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link href="#action5">Expresionismo</Nav.Link>
-              <Nav.Link href="#action6">Arte Pop</Nav.Link>
+              <NavLink to='/' className="nav-link">Home</NavLink>
+              {console.log(categories)}
+              {categories.map(cat =>
+              <NavLink key={cat.id} to={`/category/${cat.id}`}
+                className="nav-link"
+              >
+                {cat.description}
+              </NavLink>)}
             </Nav>
           </Navbar.Collapse>
-          <CartWidget/>
+          <CartWidget />
         </Container>
       </Navbar>
     </>
