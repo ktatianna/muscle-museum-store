@@ -1,7 +1,15 @@
-import { Button } from "react-bootstrap";
 import "./ItemDetail.css"
+import {Link} from "react-router-dom";
+import { useState } from "react";
+import ItemCount from '../ItemCount/ItemCount'
 
-const ItemDetail = ({ title, image, category, description, medium, autor, price, movement }) => {
+const ItemDetail = ({ title, image, category, description, medium, autor, price, movement, stock }) => {
+    const [quantity, setQuantity] = useState(0);
+
+    const handleAdd = (count) => {
+        setQuantity(count)
+    }
+
     return (
         <>
             <div className="card mb-3 card-container text-center">
@@ -17,7 +25,9 @@ const ItemDetail = ({ title, image, category, description, medium, autor, price,
                             <p>{description}</p>
                             <p className="card-text card-price"><strong>{price}</strong></p>
                             <p className="card-text"><small className="text-muted">{`${movement} - ${category}`}</small></p>
-                            <Button variant="dark">Add to cart</Button>
+                            {quantity > 0 ? <Link className="link-dark" to='/cart'>Ir al carrito</Link> :
+                                <ItemCount  onConfirm={handleAdd} stock={stock} />
+                            }
                         </div>
                     </div>
                 </div>
