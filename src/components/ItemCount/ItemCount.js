@@ -4,7 +4,6 @@ import { useState } from "react";
 
 const ItemCount = ({ onConfirm, stock, initial = 0 }) => {
   const [count, setCount] = useState(initial);
-  console.log(stock)
 
   const increment = () => {
     if (count < stock) setCount(count + 1)
