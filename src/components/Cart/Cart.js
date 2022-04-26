@@ -1,4 +1,5 @@
 import { Table, Button } from "react-bootstrap";
+import { NavLink } from 'react-router-dom'
 import './Cart.css';
 import { useContext } from "react"
 import CartContext from "../../context/CartContext"
@@ -11,6 +12,8 @@ const Cart = () => {
     return (
       <div className="alert alert-warning alert-cart" role="alert">
         No hay productos agregados
+        <br/>
+        <NavLink to='/'>Ver productos</NavLink>
       </div>
     )
   }
