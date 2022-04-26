@@ -9,6 +9,7 @@ export const artworks = [
         movement: "Modernismo",
         category: "Siglo XIX",
         price: "100 €",
+        stock: 5,
     },
     {
         id: "2",
@@ -20,6 +21,7 @@ export const artworks = [
         movement: "Romanticismo",
         category: "Edad contemporanea",
         price: "100 €",
+        stock: 3,
     },
     {
         id: "3",
@@ -31,6 +33,7 @@ export const artworks = [
         movement: "Surrealismo",
         category: "Siglo XX",
         price: "100 €",
+        stock: 5,
     },
     {
         id: "4",
@@ -42,6 +45,7 @@ export const artworks = [
         movement: "Renacimiento",
         category: "Edad moderna",
         price: "100 €",
+        stock: 15,
     },
     {
         id: "5",
@@ -53,6 +57,7 @@ export const artworks = [
         movement: "Realismo",
         category: "Siglo XIX",
         price: "100 €",
+        stock: 4,
     },
     {
         id: "6",
@@ -64,6 +69,7 @@ export const artworks = [
         movement: "Posimpresonismo",
         category: "Siglo XIX",
         price: "100 €",
+        stock: 8,
     },
     {
         id: "7",
@@ -75,6 +81,7 @@ export const artworks = [
         movement: "Romanticismo",
         category: "Edad contemporanea",
         price: "100 €",
+        stock: 2,
     },
     {
         id: "8",
@@ -86,6 +93,7 @@ export const artworks = [
         movement: "Arte pop",
         category: "Siglo XX",
         price: "100 €",
+        stock: 7,
     },
 ];
 

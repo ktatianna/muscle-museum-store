@@ -1,0 +1,28 @@
+.counter-container {
+    margin: 5px 20px;
+    justify-content: center;
+    padding: 5px 0;
+    
+}
+
+.counter { 
+    width: 40%;
+    margin: auto;
+    display: flex;
+
+}
+
+.badge-counter { 
+    text-align: center;
+    background-color: black;
+    color: white;
+    margin: 0 5px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.add-button {
+    margin-top: 5px;
+}

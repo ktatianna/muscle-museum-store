@@ -1,19 +1,35 @@
-import { Button, Stack, Badge } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
+import "./ItemCount.css";
+import { useState } from "react";
 
-const ItemCount = ({ onAdd, stock, initial, count }) => {
+const ItemCount = ({ onConfirm, stock, initial = 0 }) => {
+  const [count, setCount] = useState(initial);
+
+  const increment = () => {
+    if (count < stock) setCount(count + 1)
+  };
+
+  const decrement = () => {
+    if (count > 0) setCount(count - 1);
+  };
 
   return (
-    <Stack direction="horizontal" gap={3}>
-      <Button variant="outline-dark" onClick={ () => onAdd('-') }>
-        -
+    <Container className="counter-container Container">
+      <div className="counter">
+        <Button variant="outline-dark" onClick={decrement}>
+          -
+        </Button>
+        <div className="badge-counter">
+          <h6>{count}</h6>
+        </div>
+        <Button variant="outline-dark" onClick={increment}>
+          +
+        </Button>
+      </div>
+      <Button className="add-button" variant="dark" onClick={() => onConfirm(count)}>
+        Add to cart
       </Button>
-      <h3>
-        <Badge bg="primary">{count}</Badge>
-      </h3>
-      <Button variant="outline-dark" onClick={ () => onAdd('+') }>
-        +
-      </Button>
-    </Stack>
+    </Container>
   );
 };
 

@@ -1,7 +1,20 @@
-import { Button } from "react-bootstrap";
 import "./ItemDetail.css"
+import {Link} from "react-router-dom";
+import { useState, useContext } from "react";
+import ItemCount from '../ItemCount/ItemCount'
+import CartContext from "../../context/CartContext";
 
-const ItemDetail = ({ title, image, category, description, medium, autor, price, movement }) => {
+const ItemDetail = ({ id, title, image, category, description, medium, autor, price, movement, stock }) => {
+
+    const { addItem, isInCart } = useContext(CartContext);
+
+    const handleAdd = (count) => {
+        const productObj = {
+            id, title, price
+        }
+        addItem({...productObj, quantity: count})
+    }
+
     return (
         <>
             <div className="card mb-3 card-container text-center">
@@ -17,7 +30,9 @@ const ItemDetail = ({ title, image, category, description, medium, autor, price,
                             <p>{description}</p>
                             <p className="card-text card-price"><strong>{price}</strong></p>
                             <p className="card-text"><small className="text-muted">{`${movement} - ${category}`}</small></p>
-                            <Button variant="dark">Add to cart</Button>
+                            {isInCart(id) ? <Link className="link-dark" to='/cart'>Ir al carrito</Link> :
+                                <ItemCount  onConfirm={handleAdd} stock={stock} />
+                            }
                         </div>
                     </div>
                 </div>

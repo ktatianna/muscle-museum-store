@@ -28,7 +28,6 @@ const NavBar = () => {
               navbarScroll
             >
               <NavLink to='/' className="nav-link">Home</NavLink>
-              {console.log(categories)}
               {categories.map(cat =>
               <NavLink key={cat.id} to={`/category/${cat.id}`}
                 className="nav-link"
