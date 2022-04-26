@@ -33,6 +33,10 @@ const removeItem = (id) => {
   setCart(products)
 }
 
+const getTotal = () => { 
+  
+}
+
   return(
     <CartContext.Provider value ={{
       cart, 

@@ -1,0 +1,9 @@
+.cart-container { 
+  max-width: 900px;
+  margin: auto;
+}
+
+.alert-cart {
+  max-width: 400px;
+  margin: auto;
+}
