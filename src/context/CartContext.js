@@ -34,7 +34,9 @@ const removeItem = (id) => {
 }
 
 const getTotal = () => { 
-  
+  return cart.reduce((acumulated, currentItem) => {
+		return acumulated + currentItem.quantity*currentItem.price
+	}, 0);
 }
 
   return(
@@ -44,7 +46,8 @@ const getTotal = () => {
       getQuantity,
       isInCart,
       clearCart,
-      removeItem
+      removeItem,
+      getTotal,
     }}>
       {children}
     </CartContext.Provider>

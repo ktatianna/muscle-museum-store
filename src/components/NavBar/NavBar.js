@@ -6,7 +6,11 @@ import { useEffect, useState } from "react";
 import CartWidget from '../../components/CartWidget/CartWidget';
 import { getCategories } from "../../utils/getArtworks";
 
+import { useContext } from "react"
+import CartContext from "../../context/CartContext"
+
 const NavBar = () => {
+  const { cart } = useContext(CartContext)
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
@@ -36,7 +40,9 @@ const NavBar = () => {
               </NavLink>)}
             </Nav>
           </Navbar.Collapse>
-          <CartWidget />
+          { cart.length > 0 && 
+            <CartWidget />
+          }
         </Container>
       </Navbar>
     </>

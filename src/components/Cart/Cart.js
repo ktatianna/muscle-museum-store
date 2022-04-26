@@ -1,11 +1,11 @@
-import { Table, Button, Placeholder } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import './Cart.css';
 import { useContext } from "react"
 import CartContext from "../../context/CartContext"
 
 const Cart = () => {
 
-  const { cart, removeItem } = useContext(CartContext)
+  const { cart, removeItem, getTotal } = useContext(CartContext)
 
   if(cart.length === 0 ) {
     return (
@@ -45,8 +45,8 @@ const Cart = () => {
             </tr>
           ))}
           <tr>
-            <td colSpan={3}>total</td>
-            <td>tanto</td>
+            <td colSpan={3}>Total carrito</td>
+            <td>{getTotal()}</td>
             <td>-</td>
           </tr>
         </tbody>
