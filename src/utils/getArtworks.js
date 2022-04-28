@@ -1,4 +1,4 @@
-import { artworks, categories } from '../mock/artworks'
+/*import { artworks, categories } from '../mock/artworks'
 
 export const getArtworks = (categoryId) => {
     return new Promise((resolve, reject) => {
@@ -28,3 +28,4 @@ export const getCategories = () => {
         }, 1000)
     })
 }
+*/
