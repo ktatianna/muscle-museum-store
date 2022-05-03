@@ -7,3 +7,8 @@
   max-width: 400px;
   margin: auto;
 }
+
+.cart-btn {
+  max-width: 200px;
+  margin: 5px;
+}

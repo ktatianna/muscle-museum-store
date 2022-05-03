@@ -1,18 +1,20 @@
 import { Table, Button } from "react-bootstrap";
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import './Cart.css';
 import { useContext } from "react"
 import CartContext from "../../context/CartContext"
 
+
 const Cart = () => {
 
-  const { cart, removeItem, getTotal } = useContext(CartContext)
+  const { cart, removeItem, getTotal, getQuantity } = useContext(CartContext)
 
-  if(cart.length === 0 ) {
+
+  if (getQuantity() === 0) {
     return (
       <div className="alert alert-warning alert-cart" role="alert">
         No hay productos agregados
-        <br/>
+        <br />
         <NavLink to='/'>Ver productos</NavLink>
       </div>
     )
@@ -54,6 +56,7 @@ const Cart = () => {
           </tr>
         </tbody>
       </Table>
+      <Link to ='/checkout' className="btn btn-dark cart-btn">Checkout</Link>
     </div>
   );
 }

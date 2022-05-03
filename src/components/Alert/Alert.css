@@ -1,0 +1,9 @@
+.toast-header {
+  color: rgb(0, 0, 0) !important;
+  background-color: rgba(255, 255, 255, 0.603) !important;
+}
+
+.toast-cart {
+  margin: auto;
+  margin-top: 20px;
+}
