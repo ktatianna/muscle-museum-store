@@ -2,7 +2,7 @@ import { Button, Container } from "react-bootstrap";
 import "./ItemCount.css";
 import { useState } from "react";
 
-const ItemCount = ({ onConfirm, stock, initial = 0 }) => {
+const ItemCount = ({ onConfirm, stock, initial = 1 }) => {
   const [count, setCount] = useState(initial);
 
   const increment = () => {
@@ -10,7 +10,7 @@ const ItemCount = ({ onConfirm, stock, initial = 0 }) => {
   };
 
   const decrement = () => {
-    if (count > 0) setCount(count - 1);
+    if (count > 1) setCount(count - 1);
   };
 
   return (
