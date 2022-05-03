@@ -17,12 +17,12 @@ const NavBar = () => {
 
   useEffect(() => {
     getDocs(collection(firestoreDb, 'categories'))
-    .then(response => {
-      const categories = response.docs.map(doc => { 
-        return {id: doc.id, ...doc.data()}
+      .then(response => {
+        const categories = response.docs.map(doc => {
+          return { id: doc.id, ...doc.data() }
+        })
+        setCategories(categories)
       })
-      setCategories(categories)
-    })
   }, [])
 
   return (
@@ -39,16 +39,16 @@ const NavBar = () => {
             >
               <NavLink to='/' className="nav-link">Home</NavLink>
               {categories.map(cat =>
-              <NavLink key={cat.id} to={`/category/${cat.id}`}
-                className="nav-link"
-              >
-                {cat.description}
-              </NavLink>)}
+                <NavLink key={cat.id} to={`/category/${cat.id}`}
+                  className="nav-link"
+                >
+                  {cat.description}
+                </NavLink>)}
             </Nav>
+            {cart.length > 0 &&
+              <CartWidget />
+            }
           </Navbar.Collapse>
-          { cart.length > 0 && 
-            <CartWidget />
-          }
         </Container>
       </Navbar>
     </>

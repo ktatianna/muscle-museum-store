@@ -7,7 +7,7 @@ import CartContext from "../../context/CartContext"
 
 const Cart = () => {
 
-  const { cart, removeItem, getTotal, getQuantity } = useContext(CartContext)
+  const { cart, removeItem, getTotal, getQuantity, clearCart } = useContext(CartContext)
 
 
   if (getQuantity() === 0) {
@@ -56,7 +56,14 @@ const Cart = () => {
           </tr>
         </tbody>
       </Table>
-      <Link to ='/checkout' className="btn btn-dark cart-btn">Checkout</Link>
+      <Button
+        variant="dark"
+        className="cart-btn"
+        onClick={() => clearCart()}
+      >
+       Limpiar carrito
+      </Button>
+      <Link to='/checkout' className="btn btn-dark cart-btn">Checkout</Link>
     </div>
   );
 }
