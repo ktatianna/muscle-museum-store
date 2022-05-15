@@ -1,13 +1,20 @@
-import { Table, Button } from "react-bootstrap";
-import { NavLink, Link } from 'react-router-dom'
+import { Table, Button, Modal } from "react-bootstrap";
+import { NavLink } from 'react-router-dom'
 import './Cart.css';
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import CartContext from "../../context/CartContext"
+import Checkout from "../Checkout/Checkout";
 
 
 const Cart = () => {
 
   const { cart, removeItem, getTotal, getQuantity, clearCart } = useContext(CartContext)
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
 
   if (getQuantity() === 0) {
@@ -61,9 +68,18 @@ const Cart = () => {
         className="cart-btn"
         onClick={() => clearCart()}
       >
-       Limpiar carrito
+        Limpiar carrito
       </Button>
-      <Link to='/checkout' className="btn btn-dark cart-btn">Checkout</Link>
+      <Button className="btn btn-dark cart-btn" onClick={handleShow}>Checkout</Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Checkout/>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }

@@ -16,7 +16,7 @@ const Checkout = () => {
   const [alertBg, setAlertBg] = useState('');
   const toggleShow = () => setShow(!show);
 
-  const { cart, removeItem, getTotal } = useContext(CartContext)
+  const { cart, getTotal } = useContext(CartContext)
 
   const createOrder = e => {
     e.preventDefault();

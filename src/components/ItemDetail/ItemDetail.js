@@ -1,5 +1,5 @@
 import "./ItemDetail.css"
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import ItemCount from '../ItemCount/ItemCount'
 import CartContext from "../../context/CartContext";
@@ -12,7 +12,7 @@ const ItemDetail = ({ id, title, image, category, description, medium, autor, pr
         const productObj = {
             id, title, price
         }
-        addItem({...productObj, quantity: count})
+        addItem({ ...productObj, quantity: count })
     }
 
     return (
@@ -32,7 +32,7 @@ const ItemDetail = ({ id, title, image, category, description, medium, autor, pr
                             <p>Unidades disponibles: {stock}</p>
                             <p className="card-text"><small className="text-muted">{`${movement} - ${category}`}</small></p>
                             {isInCart(id) ? <Link className="link-dark" to='/cart'>Ir al carrito</Link> :
-                                <ItemCount  onConfirm={handleAdd} stock={stock} />
+                                <ItemCount onConfirm={handleAdd} stock={stock} />
                             }
                         </div>
                     </div>
