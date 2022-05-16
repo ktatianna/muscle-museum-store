@@ -1,3 +1,5 @@
+![3](https://user-images.githubusercontent.com/93689968/168521422-c0e12c25-9161-48fe-a3a4-9dc129e78613.png)
+
 # Muscle Museum Store
 
 Este es un proyecto realizado para el curso de React Js, el cual consiste en una tienda virtual de diferentes obras de arte las cuales están organizadas por movimiento artistico. En cada una de las obras expuestas en este proyecto, se puede visualizar información de ésta, tal como el titulo, el autor, la descripción, la téctica, el movimiento artistico y un precio y unidades disponibles puestas para la funcionalidad del proyecto.
@@ -24,6 +26,7 @@ Los componentes principales usados en el proyecto son:
 - NavBar: Muestra el menú con el cual se puede navegar y acceder a las difentes rutas del proyecto. 
 
 ## Navegación 
+
 
 ## Firebase
 
