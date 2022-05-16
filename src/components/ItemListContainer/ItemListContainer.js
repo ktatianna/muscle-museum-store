@@ -15,13 +15,19 @@ const ItemListContainer = () => {
   useEffect(() => {
     setLoading(true)
 
+    let isActive = true
+
     getProducts(categoryId).then(products => {
-      setProducts(products)
+      if(isActive) setProducts(products)
     }).catch(error => {
       console.log(error)
     }).finally(() => {
-      setLoading(false)
+      if(isActive) setLoading(false)
     })
+
+    return () => {
+      isActive = false
+    }
   }, [categoryId])
   
 
