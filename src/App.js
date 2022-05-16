@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Cart from './components/Cart/Cart';
 import { CartContextProvider } from './context/CartContext';
+import Banner from './components/Banner/Banner';
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
       <CartContextProvider>
         <BrowserRouter>
           <NavBar />
-          <h1 className='title fw-bolder lh-lg'> Muscle Museum Store </h1>
+          <Banner/>
           <Routes>
             <Route path='/' element={<ItemListContainer />} />
             <Route path='/item/:productId' element={<ItemDetailContainer />} />
