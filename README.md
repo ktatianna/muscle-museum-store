@@ -26,6 +26,7 @@ Los componentes principales usados en el proyecto son:
 - NavBar: Muestra el menú con el cual se puede navegar y acceder a las difentes rutas del proyecto. 
 
 ## Navegación 
+![jtTSBs6dYp](https://user-images.githubusercontent.com/93689968/168524421-67308183-d98c-4310-9e3e-0cff88aac521.gif)
 
 
 ## Firebase
