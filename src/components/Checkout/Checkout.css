@@ -1,0 +1,9 @@
+.form-checkout {
+  max-width: 500px;
+  margin: auto;
+  text-align: left;
+}
+
+.form-group {
+  margin: 15px 0;
+}

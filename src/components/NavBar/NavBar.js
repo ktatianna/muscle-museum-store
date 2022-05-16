@@ -4,15 +4,25 @@ import { NavLink } from 'react-router-dom'
 import { useEffect, useState } from "react";
 
 import CartWidget from '../../components/CartWidget/CartWidget';
-import { getCategories } from "../../utils/getArtworks";
+
+import { useContext } from "react"
+import CartContext from "../../context/CartContext"
+
+import { firestoreDb } from "../../services/firebase";
+import { getDocs, collection } from "firebase/firestore";
 
 const NavBar = () => {
+  const { cart } = useContext(CartContext)
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
-    getCategories().then(categories => {
-      setCategories(categories)
-    })
+    getDocs(collection(firestoreDb, 'categories'))
+      .then(response => {
+        const categories = response.docs.map(doc => {
+          return { id: doc.id, ...doc.data() }
+        })
+        setCategories(categories)
+      })
   }, [])
 
   return (
@@ -29,14 +39,16 @@ const NavBar = () => {
             >
               <NavLink to='/' className="nav-link">Home</NavLink>
               {categories.map(cat =>
-              <NavLink key={cat.id} to={`/category/${cat.id}`}
-                className="nav-link"
-              >
-                {cat.description}
-              </NavLink>)}
+                <NavLink key={cat.id} to={`/category/${cat.id}`}
+                  className="nav-link"
+                >
+                  {cat.description}
+                </NavLink>)}
             </Nav>
+            {cart.length > 0 &&
+              <CartWidget />
+            }
           </Navbar.Collapse>
-          <CartWidget />
         </Container>
       </Navbar>
     </>

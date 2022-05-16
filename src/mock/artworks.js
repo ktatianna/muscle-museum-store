@@ -8,7 +8,7 @@ export const artworks = [
         medium: "Oil and gold leaf on canvas",
         movement: "Modernismo",
         category: "Siglo XIX",
-        price: "100 €",
+        price: 100,
         stock: 5,
     },
     {
@@ -20,7 +20,7 @@ export const artworks = [
         medium: "Oil on canvas",
         movement: "Romanticismo",
         category: "Edad contemporanea",
-        price: "100 €",
+        price: 100,
         stock: 3,
     },
     {
@@ -32,7 +32,7 @@ export const artworks = [
         medium: "Oil on canvas",
         movement: "Surrealismo",
         category: "Siglo XX",
-        price: "100 €",
+        price: 100,
         stock: 5,
     },
     {
@@ -44,7 +44,7 @@ export const artworks = [
         medium: "Oil on poplar",
         movement: "Renacimiento",
         category: "Edad moderna",
-        price: "100 €",
+        price: 100,
         stock: 15,
     },
     {
@@ -56,7 +56,7 @@ export const artworks = [
         medium: "Oil  on canvas",
         movement: "Realismo",
         category: "Siglo XIX",
-        price: "100 €",
+        price: 100,
         stock: 4,
     },
     {
@@ -68,7 +68,7 @@ export const artworks = [
         medium: "Oil on canvas",
         movement: "Posimpresonismo",
         category: "Siglo XIX",
-        price: "100 €",
+        price: 100,
         stock: 8,
     },
     {
@@ -80,7 +80,7 @@ export const artworks = [
         medium: "Oil on canvas",
         movement: "Romanticismo",
         category: "Edad contemporanea",
-        price: "100 €",
+        price: 100,
         stock: 2,
     },
     {
@@ -92,7 +92,7 @@ export const artworks = [
         medium: "Polímero sintético y tintas",
         movement: "Arte pop",
         category: "Siglo XX",
-        price: "100 €",
+        price: 100,
         stock: 7,
     },
 ];

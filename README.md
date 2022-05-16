@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+![3](https://user-images.githubusercontent.com/93689968/168521422-c0e12c25-9161-48fe-a3a4-9dc129e78613.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Muscle Museum Store
 
-## Available Scripts
+Este es un proyecto realizado para el curso de React Js, el cual consiste en una tienda virtual de diferentes obras de arte las cuales están organizadas por movimiento artistico. En cada una de las obras expuestas en este proyecto, se puede visualizar información de ésta, tal como el titulo, el autor, la descripción, la téctica, el movimiento artistico y un precio y unidades disponibles puestas para la funcionalidad del proyecto.
 
-In the project directory, you can run:
+## Inicialización del proyecto
 
-### `npm start`
+Para poder acceder al proyecto e inicializarlo, se debe seguir los siguientes comandos en tu consola:
+```
+git clone https://github.com/ktatianna/muscle-museum-store.git
+npm install
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Componentes 
+Los componentes principales usados en el proyecto son: 
+- Alert: Este componente genera un mensaje informativo en el momento de generar la orden de compra. 
+- Cart: Renderiza una tabla con la información básica de los productos agregados al carrito por el usuario y la suma total de los precios de éstos. También permite eliminar items del carrito y en caso de quedar vacío, renderiza un mensaje informativo. 
+- CartWidget: Muestra en el menú principal un icono del carrito con el numero de items agregados a éste, con el cual el usuario puede acceder de manera rápida a esta ruta. En caso de estar vacío el carrito, este componente no se muestra. 
+- Checkout: Registra los datos de la orden de compra a partir de un formulario y genera dicha orden. 
+- Item: Muestra la información basica del producto y permite acceder a la información detallada.
+- ItemCount: Permite agregar items al carrito con botones para incrementar o desincrementar la cantidad de unidades por agregar. 
+- ItemDetail: Renderiza la información detallada del producto
+- ItemList: Renderiza una lista de Items
+- NavBar: Muestra el menú con el cual se puede navegar y acceder a las difentes rutas del proyecto. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Navegación 
+![jtTSBs6dYp](https://user-images.githubusercontent.com/93689968/168524421-67308183-d98c-4310-9e3e-0cff88aac521.gif)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Firebase
 
-### `npm run build`
+Para el proyecto se usó Firebase, allí se almacenan los datos de los productos, categorias y de cada orden de compra en 3 colecciones.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+El formato de los datos en cada una de las colecciones es la siguiente: 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### artworks
+| Campo | Tipo |
+| ------------- | ------------- |
+| autor  | string  |
+| category  | string |
+| description | string |
+| image  | string |
+| medium  | string |
+| movement | string |
+| price  | number |
+| stock  | number |
+| title  | string |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### categories
+| Campo | Tipo |
+| ------------- | ------------- |
+| description  | string  |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### orders
+| Campo | Tipo |
+| ------------- | ------------- |
+| buyer  | map  |
+| date  | timestamp  |
+| items  | matriz  |
+| total  | number  |

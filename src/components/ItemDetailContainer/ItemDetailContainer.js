@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useParams } from 'react-router-dom';
 
+import { firestoreDb } from "../../services/firebase";
+import { getDoc, doc } from "firebase/firestore";
+
 import ItemDetail from "../ItemDetail/ItemDetail";
 import './ItemDetailContainer.css'
-
-import { getArtworksById } from "../../utils/getArtworks";
 
 const ItemDetailContainer = () => {
 
@@ -16,11 +17,11 @@ const ItemDetailContainer = () => {
 
 
     useEffect(() => {
-        getArtworksById(productId)
-            .then((artwork) => setProduct(artwork))
-            .catch((error) => console.log(error))
-            .finally(() => setLoading(false))
-        return (() => setProduct())
+        getDoc(doc(firestoreDb, 'artworks', productId)).then(response => {
+            const product = { id: response.id, ...response.data()}
+            setProduct(product)
+        })
+        setLoading(false)
     }, [productId]);
 
     return (
