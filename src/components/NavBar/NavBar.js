@@ -27,7 +27,7 @@ const NavBar = () => {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar variant="dark" expand="lg">
         <Container fluid>
           <NavLink to='/' className="navbar-brand">Muscle Museum Store</NavLink>
           <Navbar.Toggle aria-controls="navbarScroll" />
