@@ -40,7 +40,7 @@ const Cart = () => {
         </thead>
         <tbody>
           {cart.map((prod) => (
-            <tr>
+            <tr key={prod.id}>
               <td>{prod.title} </td>
               <td>{prod.price} </td>
               <td>{prod.quantity} </td>
@@ -74,7 +74,7 @@ const Cart = () => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Checkout</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Checkout/>

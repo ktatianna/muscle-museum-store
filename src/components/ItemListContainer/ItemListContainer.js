@@ -1,51 +1,48 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import './ItemListContainer.css'
-import { getDocs, collection, query,  where } from "firebase/firestore";
-import { firestoreDb } from "../../services/firebase";
 import { useParams } from 'react-router-dom';
 
 import ItemList from "../ItemList/ItemList";
+import { getProducts } from "../../services/firebase/firestore";
 
 const ItemListContainer = () => {
 
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true)
-    const { categoryId } = useParams();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true)
+  const { categoryId } = useParams();
 
-    useEffect(() => {
+  useEffect(() => {
+    setLoading(true)
 
-        const collectionRef = categoryId
-        ? query(collection(firestoreDb, 'artworks'), where('category', '==', categoryId ))
-        : collection(firestoreDb, 'artworks')
+    getProducts(categoryId).then(products => {
+      setProducts(products)
+    }).catch(error => {
+      console.log(error)
+    }).finally(() => {
+      setLoading(false)
+    })
+  }, [categoryId])
+  
 
-        getDocs(collectionRef)
-        .then(response => {
-            const products = response.docs.map(doc => {
-                return { id: doc.id, ...doc.data()}
-            })
-            setProducts(products)
-        })
-        setLoading(false)
-    }, [categoryId]);
+  if (products.length === 0) {
+    return <h1>No hay productos</h1>
+  }
 
-    if(products.length === 0) { 
-        return <h1>No hay productos</h1>
-    }
 
-    return (
-      <>
-        {loading ? (
-          <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-        ) : (
-          <Container className="ItemListContainer">
-            <ItemList products={products} />
-          </Container>
-        )}
-      </>
-    );
-};
+  return (
+    <>
+      {loading ? (
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      ) : (
+        <Container className="ItemListContainer">
+          <ItemList products={products} />
+        </Container>
+      )}
+    </>
+  );
+}
 
-export default ItemListContainer;
+export default ItemListContainer

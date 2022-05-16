@@ -82,7 +82,7 @@ const Checkout = () => {
     <>
       <Form className="form-checkout" >
         <div className="form-group">
-          <label for="formName">Nombre</label>
+          <label>Nombre</label>
           <input
             type="text"
             className="form-control"
@@ -94,7 +94,7 @@ const Checkout = () => {
         </div>
 
         <div className="form-group">
-          <label for="formPhone">Celular</label>
+          <label>Celular</label>
           <input
             type="text"
             className="form-control"
@@ -106,7 +106,7 @@ const Checkout = () => {
         </div>
 
         <div className="form-group">
-          <label for="formEmail">Email</label>
+          <label>Email</label>
           <input
             type="email"
             className="form-control"
